@@ -13,4 +13,8 @@ describe('ApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy()
   })
+
+  it('should get page 1', () => {
+    expect(service.GetUsersPage1()).toBeDefined()
+  })
 })

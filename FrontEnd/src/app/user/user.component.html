@@ -1,1 +1,23 @@
-<p>user works!</p>
+<div class="container">
+  <div class="row">
+    <button type="button" class="col-sm btn btn-outline-primary" (click)="backToList()">Regresar</button>
+  </div>
+  <br />
+
+  <div class="container" *ngIf="UserData != undefined && UserData.data != null">
+    <div class="row">
+      <div class="col-4">
+        <img class="img-fluid img-thumbnail rounded float-left" src={{UserData.data.avatar}} alt="Avatar" height="256"
+          width="256">
+      </div>
+
+      <div class="col">
+        <h3 class="display-3">{{UserData.data.first_name}} {{UserData.data.last_name}}</h3>
+        <p class="lead"><strong>ID:</strong> {{UserData.data.id}}</p>
+        <p class="lead"><strong>E-mail:</strong> {{UserData.data.email}}</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,1 +1,34 @@
-<p>user-list works!</p>
+<div class="container">
+  <div class="row">
+    <button type="button" class="col-sm btn btn-outline-primary" (click)="pageChange(1)">Pagina 1</button>
+    <button type="button" class="col-sm btn btn-outline-primary" (click)="pageChange(2)">Pagina 2</button>
+  </div>
+  <br />
+
+  <p class="lead" *ngIf="UserData == null">No hay usuarios por mostrar.</p>
+
+  <div class="row col" *ngIf="UserData != null && UserData.data.length > 0">
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Ver perfil</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of UserData.data">
+          <td scope="row">{{user.id}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td><img class="img-fluid" src={{user.avatar}} alt="Avatar" height="64" width="64"></td>
+          <td><button type="button" class="btn btn-info" (click)="selectedUser(user.id)">> Al perfil</button></td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
